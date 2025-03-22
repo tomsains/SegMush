@@ -17,21 +17,21 @@ For example, in a mushroom farm, an automated system could use segmentation to:
 3. Automate harvesting: Robots equipped with cameras and segmentation models could precisely locate and harvest mushrooms without human intervention.
 
 ## The dataset
-To be able to train a model we need data. In fact we need data were someone has already gone through the pain staking task of annotating the location of every mushroom in the image. A quick search on google returned this [dataset](https://universe.roboflow.com/pennsylvania-state-university-sofmp/mushroom-detection-smart-bounding-boxes), from pennsylvania state university. In this dataset they have labelled multiple images of mushrooms by hand, with a mask for each mushroom in the image. 
+To be able to train a model we need data. In fact we need data were someone has already gone through the pain-staking task of annotating the location of every mushroom in the image. A quick search on google returned this [dataset](https://universe.roboflow.com/pennsylvania-state-university-sofmp/mushroom-detection-smart-bounding-boxes), from pennsylvania state university. In this dataset, they have labeled multiple images of mushrooms by hand, with a mask for each mushroom in the image. 
 
-Lets take a look at what some of these images look like:
+Let's take a look at what some of these images look like:
 
 {{< figure src="./images_of_mushrooms.png" title="" >}}
 
-And here are the same images with the human annotated labels overlayed in red. ie the red colour indicated a pixel where a mushroom is present:
+And here are the same images with the human-annotated labels overlayed in red. ie the red colour indicates a pixel where a mushroom is present:
 
 {{< figure src="./images_of_mushrooms_w_masks.png" title="" >}}
 
 ## Transfer learning
 
-One major downside of this dataset is that it is very small, only 35 images - this could make it difficult for a model to achieve accurate and generalizable performance beyond the training data. With small datasets like this deep learning models tend to "overfit" the data, meaning that they perform well on the training data but poorly on the test data.
+One major downside of this dataset is that it is very small, with only 35 images - this could make it difficult for a model to achieve accurate and generalizable performance beyond the training data. With small datasets like this deep learning models tend to "overfit" the data, meaning that they perform well on the training data but poorly on the test data.
 
-One way that we may be able to get around this problem is using transfer learning. Transfer learning is a technique where a model developed for one task is reused as the starting point for a model on a second task. This approach is particularly useful when working with small datasets, as it allows the model to leverage knowledge learned from a larger, more diverse dataset. For example, a pre-trained model like ResNet or VGG, which has been trained on millions of images from the ImageNet dataset, can be fine-tuned on the smaller dataset. By doing so, the model can benefit from the general features (e.g., edges, textures, shapes) learned during the initial training, reducing the risk of overfitting and improving generalization on the smaller dataset.
+One way that we can get around this problem is using transfer learning. Transfer learning is a technique where a model developed for one task is reused as the starting point for a model on a second task. This approach is particularly useful when working with small datasets, as it allows the model to leverage knowledge learned from a larger, more diverse dataset. For example, a pre-trained model like ResNet or VGG, which has been trained on millions of images from the ImageNet dataset, can be fine-tuned on the smaller dataset. By doing so, the model can benefit from the general features (e.g., edges, textures, shapes) learned during the initial training, reducing the risk of overfitting and improving generalization on the smaller dataset.
 
 In addition, transfer learning is beneficial because:
 
@@ -93,7 +93,7 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 ```
 
 ## Evaluation Metric: Intersection over Union (IoU)
-he performance of the segmentation model is evaluated using the Intersection over Union (IoU) metric. IoU measures the overlap between the predicted segmentation mask and the ground truth mask. It is calculated as:
+The performance of the segmentation model is evaluated using the Intersection over Union (IoU) metric. IoU measures the overlap between the predicted segmentation mask and the ground truth mask. It is calculated as:
 
 
 
